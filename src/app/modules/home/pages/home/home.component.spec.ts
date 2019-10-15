@@ -15,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -22,11 +23,25 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent, MenuComponent, ContainerComponent, ProductInfoComponent, RatingComponent ],
-      imports: [ MatSidenavModule, MatIconModule, MatMenuModule,  MatCardModule, MatButtonModule, MatIconModule,
-                MatTooltipModule, BrowserAnimationsModule ]
-    })
-    .compileComponents();
+      declarations: [
+        HomeComponent,
+        MenuComponent,
+        ContainerComponent,
+        ProductInfoComponent,
+        RatingComponent
+      ],
+      imports: [
+        MatSidenavModule,
+        MatIconModule,
+        MatMenuModule,
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule,
+        BrowserAnimationsModule,
+        TranslateModule.forRoot()
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

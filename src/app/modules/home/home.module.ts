@@ -13,6 +13,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from './components/menu/menu.component';
 import { ContainerComponent } from './components/container/container.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ContainerComponent } from './components/container/container.component';
     MatSidenavModule,
     MatMenuModule,
     MatIconModule,
+    TranslateModule
   ],
   declarations: [
     HomeComponent,

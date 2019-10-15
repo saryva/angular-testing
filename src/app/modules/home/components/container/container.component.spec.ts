@@ -1,5 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from '@ngx-translate/core';
 
 // Component
 import { ContainerComponent } from './container.component';
@@ -18,26 +23,55 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 // Mocks
 import { products } from '@appCore/mocks/product-info.mock';
 
+// const translations = require('../../../../assets/i18n/es.json');
+
+const translations: any = {
+  titulo: 'titulo'
+};
+
+class FakeLoader implements TranslateLoader {
+  getTranslation(lang: string): Observable<any> {
+    return of(translations);
+  }
+}
+
 describe('ContainerComponent', () => {
   let component: ContainerComponent;
   let fixture: ComponentFixture<ContainerComponent>;
   let service: ProductService;
+  let translate: TranslateService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ContainerComponent, ProductInfoComponent, RatingComponent],
-      imports: [MatCardModule, MatButtonModule, MatIconModule, MatTooltipModule]
+      imports: [
+        MatCardModule,
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: FakeLoader }
+        })
+      ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ContainerComponent);
     component = fixture.componentInstance;
+    translate = TestBed.get(TranslateService);
+    translate.setTranslation('es', translations);
+    translate.use('es');
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should include the title of the page', () => {
+    const title = fixture.nativeElement.querySelector('.app-container h1').textContent.trim();
+    expect(title).toContain('titulo');
   });
 
   // beforeEach(() => {
