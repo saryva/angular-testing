@@ -11,10 +11,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 // App
 import { ProductInfoComponent } from './components/product-info/product-info.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { TitleCasePipe } from './pipes/title-case.pipe';
 
 
 @NgModule({
-  declarations: [ProductInfoComponent, RatingComponent],
+  declarations: [ProductInfoComponent, RatingComponent, TitleCasePipe],
   imports: [
     CommonModule,
     MatCardModule,
@@ -26,6 +27,7 @@ import { RatingComponent } from './components/rating/rating.component';
     MatCardModule,
     RatingComponent,
     ProductInfoComponent,
+    TitleCasePipe
   ]
 })
 export class SharedModule { }

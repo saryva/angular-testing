@@ -22,6 +22,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Mocks
 import { products } from '@appCore/mocks/product-info.mock';
+import { TitleCasePipe } from '@appShared/pipes/title-case.pipe';
 
 // const translations = require('../../../../assets/i18n/es.json');
 
@@ -43,7 +44,7 @@ describe('ContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ContainerComponent, ProductInfoComponent, RatingComponent],
+      declarations: [ContainerComponent, ProductInfoComponent, RatingComponent, TitleCasePipe],
       imports: [
         MatCardModule,
         MatButtonModule,

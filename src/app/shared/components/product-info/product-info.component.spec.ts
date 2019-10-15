@@ -13,6 +13,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Mocks
 import { products } from '@appCore/mocks/product-info.mock';
+import { TitleCasePipe } from '@appShared/pipes/title-case.pipe';
 
 describe('ProductInfoComponent', () => {
   let component: ProductInfoComponent;
@@ -20,7 +21,7 @@ describe('ProductInfoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductInfoComponent, RatingComponent ],
+      declarations: [ ProductInfoComponent, RatingComponent, TitleCasePipe ],
       imports: [ MatCardModule, MatButtonModule, MatIconModule, MatTooltipModule ]
     })
     .compileComponents();
@@ -45,7 +46,7 @@ describe('ProductInfoComponent', () => {
 
   it('title text should be', () => {
     const title = fixture.nativeElement.querySelector('.card mat-card-title').textContent.trim();
-    expect(title).toBe(products[0].name);
+    expect(title.toLowerCase()).toBe(products[0].name.toLowerCase());
   });
 
   it('should show a description', () => {

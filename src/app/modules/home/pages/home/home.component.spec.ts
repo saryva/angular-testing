@@ -16,6 +16,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
+import { TitleCasePipe } from '@appShared/pipes/title-case.pipe';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -28,7 +29,8 @@ describe('HomeComponent', () => {
         MenuComponent,
         ContainerComponent,
         ProductInfoComponent,
-        RatingComponent
+        RatingComponent,
+        TitleCasePipe
       ],
       imports: [
         MatSidenavModule,

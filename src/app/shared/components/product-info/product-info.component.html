@@ -1,7 +1,7 @@
 <mat-card class="card">
   <mat-card-header>
     <div mat-card-avatar class="header-image"></div>
-    <mat-card-title>{{product.name}}</mat-card-title>
+    <mat-card-title>{{product.name | titleCase }}</mat-card-title>
   </mat-card-header>
   <img mat-card-image src="{{product.imageUrl}}" alt="{{product.name}}">
   <mat-card-content>
